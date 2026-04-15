@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="login-card dashboard-container" style="max-width: 800px;">
+    <h2>Dicas da  Anninha ✨</h2>
+    
+    <div style="margin-top: 20px; text-align: left;">
+        {% for dica in dicas %}
+            <div style="background: #f1fcf1; padding: 15px; border-left: 5px solid {{ dica.cor_borda|default:'#ff85a2' }}; border-radius: 8px; margin-bottom: 15px;">
+                <h3 style="color: #2e7d32; margin: 0;">{{ dica.titulo }}</h3>
+                <p style="color: #333; margin: 10px 0;">{{ dica.descricao }}</p>
+            </div>
+        {% empty %}
+            <p>Nenhuma dica cadastrada ainda🐸</p>
+        {% endfor %}
+    </div>
+
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.8rem; color: #666;">
+        <p>Siga-nos: {{ instagram }} | WhatsApp: {{ whatsapp }}</p>
+
+    </div>
+</div>
+{% endblock %}
